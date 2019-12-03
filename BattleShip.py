@@ -25,14 +25,15 @@ class Ships:
 
             row_input = input("Row:").upper()
             column_input = int(input("Column:"))
-            x = dictionary[row_input]
+            y = dictionary[row_input]
 
-
-            if matrix[x][column_input-1] == " ":
-                print("noo")
+            if matrix[column_input-1][y] == " ":
+                print("You missed! Try again..")
+            elif matrix[column_input - 1][y] != "X" and matrix[column_input - 1][y] != " ":
+                print("Congratulations. You hit {} points!".format(matrix[column_input-1][y]))
+                matrix[column_input - 1][y] = "X"
             else:
-                print("yess")
-
+                print("You have already hit here before!")
 
 
 
@@ -54,7 +55,6 @@ class Ships:
 
         while len(ships) != 0:
             for num in ships:
-
                 #To choose random location
                 x = random.randrange(0, 9)
                 y = random.randrange(0, 9)
@@ -91,6 +91,8 @@ class Ships:
 
         if matrix[row][column - 1] != " ":
             pass
+        else:
+            print("You hit the {}".format(1))
 
 
 matrix = []
